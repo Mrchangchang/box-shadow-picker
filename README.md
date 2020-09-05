@@ -1,24 +1,41 @@
-# box-shadow-picker
+## box-shadow-picker 阴影选择器
 
-## Project setup
-```
-yarn install
-```
+> 一个简单的阴影选择器，支持配置css3阴影
 
-### Compiles and hot-reloads for development
+## 安装
+
 ```
-yarn serve
+nmp install box-shadow-picker 或 yarn add box-shadow-picker
 ```
 
-### Compiles and minifies for production
+## 使用
+
+全局注册
+```js
+// main.js
+import Vue from 'vue'
+import BoxShadowPicker from 'box-shadow-picker'
+
+Vue.use(BoxShadowPicker)
 ```
-yarn build
+```js
+<template>
+  <BoxShadow v-model="value"/>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        value: '0 5px 0 0 #fff000 inset'
+      }
+    }
+  }
+</script>
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## 事件
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+change事件
+```js
+<BoxShadow :value="value" @change="onChnage" />
+```
